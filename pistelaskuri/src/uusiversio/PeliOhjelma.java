@@ -1,3 +1,7 @@
+/**
+ * PeliOhjelma on graafinen käyttöliittymä pelille, jossa pelaajat saavat pisteitä 
+ * vuorollaan ja voittaja on se, jolla on ensimmäisenä 50 pistettä.
+ */
 package uusiversio;
 
 import javax.swing.*;
@@ -6,8 +10,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+ /**
+ * Tämä luokka sisältää pelin päälogiikan ja käyttöliittymän.
+ */
 public class PeliOhjelma extends JFrame implements ActionListener {
 
+  
     private JLabel pelaajaNimi;
     private JTextField pistemaaraKentta;
     private JTable pistetaulukko;
@@ -19,6 +28,9 @@ public class PeliOhjelma extends JFrame implements ActionListener {
     private int nykyinenPelaaja;
     private boolean peliPaattynyt;
 
+     /**
+     * Konstruktori, joka luo käyttöliittymän ja alustaa pelin muuttujat.
+     */
     public PeliOhjelma() {
         super("Peli");
 
@@ -58,6 +70,9 @@ public class PeliOhjelma extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+     /**
+     * Metodi kysyy käyttäjältä pelaajien lukumäärän ja nimet, ja tallentaa ne taulukkoihin.
+     */
     private void pelaajienLukumaaraJaNimet() {
         int lukumaara = Integer.parseInt(JOptionPane.showInputDialog(this, "Syötä pelaajien lukumäärä:"));
         pelaajat = new String[lukumaara];
@@ -67,6 +82,9 @@ public class PeliOhjelma extends JFrame implements ActionListener {
         }
     }
 
+     /**
+     * Metodi päivittää käyttöliittymässä näkyvän pelaajan nimen ja pistetaulukon.
+     */
     private void pelaajanTiedot() {
         pelaajaNimi.setText(pelaajat[nykyinenPelaaja]);
         taulukkoMalli.setRowCount(0);
